@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="newsItemClick"
+			type="com.teaphy.archs.view.IItemCallback"/>
+		<variable
+			name="newsBean"
+			type="com.teaphy.archs.demo.data.NewsBean"/>
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:onClick="@{view -> newsItemClick.onItemClick(newsBean)}">
+
+		<ImageView
+			android:id="@+id/ivNews"
+			android:layout_width="144dp"
+			android:layout_height="92dp"
+			android:layout_marginTop="14dp"
+			android:layout_marginBottom="14dp"
+			android:layout_marginStart="14dp"
+			android:scaleType="centerCrop"
+			app:loadImage="@{newsBean.pic}"
+			tools:src="@mipmap/ic_tree"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"/>
+
+		<TextView
+			android:id="@+id/tvTitle"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="6dp"
+			android:text="@{newsBean.title}"
+			android:textColor="@color/color33"
+			android:layout_marginEnd="14dp"
+			tools:text="钱太好赚了：苹果、谷歌应用商店“征税”引众怒"
+			android:textSize="14sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/ivNews"
+			app:layout_constraintTop_toTopOf="@+id/ivNews"/>
+
+		<TextView
+			android:id="@+id/tvSrc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="3dp"
+			android:layout_marginStart="6dp"
+			android:textSize="12sp"
+			android:textColor="@color/color99"
+			tools:text="新浪科技"
+			android:text="@{newsBean.src}"
+			app:layout_constraintStart_toEndOf="@+id/ivNews"
+			app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+
+		<TextView
+			android:id="@+id/tvTime"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@{newsBean.time}"
+			android:textColor="@color/color66"
+			android:textSize="12sp"
+			tools:text="2018-08-23 11:11:00"
+			android:layout_marginEnd="14dp"
+			app:layout_constraintBottom_toBottomOf="@+id/ivNews"
+			app:layout_constraintEnd_toEndOf="parent"/>
+	</android.support.constraint.ConstraintLayout>
+</layout>

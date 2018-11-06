@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.teaphy.archs.photos.ui.PreviewMediaActivity">
+
+	<com.teaphy.archs.photos.widget.CustomViewPager
+		android:id="@+id/mediaViewPager"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:overScrollMode="never"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+	</com.teaphy.archs.photos.widget.CustomViewPager>
+
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/titleLayout"
+		android:layout_width="0dp"
+		android:layout_height="64dp"
+		android:paddingTop="18dp"
+		android:background="@color/background_trans"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/mediaViewPager">
+
+
+		<LinearLayout
+			android:id="@+id/backLayout"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:paddingStart="10dp"
+			android:paddingEnd="10dp"
+			android:gravity="center_vertical"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<ImageView
+				android:layout_width="18dp"
+				android:layout_height="18dp"
+				android:src="@mipmap/ic_left_white"
+				/>
+
+			<TextView
+				android:id="@+id/percentText"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="3dp"
+				android:textColor="@android:color/white"
+				android:textSize="16sp"/>
+		</LinearLayout>
+
+
+		<TextView
+			android:id="@+id/numText"
+			android:layout_width="18dp"
+			android:layout_height="18dp"
+			android:layout_marginEnd="14dp"
+			android:background="@mipmap/ic_pigeon"
+			android:gravity="center"
+			android:text="9"
+			android:textColor="@android:color/white"
+			android:textSize="12sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="parent"/>
+	</android.support.constraint.ConstraintLayout>
+
+	<android.support.constraint.ConstraintLayout
+		android:id="@+id/bottomLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/background_trans"
+		app:layout_constraintBottom_toBottomOf="parent">
+
+		<View
+			android:id="@+id/view"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:layout_marginBottom="36dp"
+			android:background="@android:color/white"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"/>
+
+		<Button
+			android:id="@+id/selectButton"
+			android:layout_width="48dp"
+			android:layout_height="24dp"
+			android:layout_marginEnd="8dp"
+			android:background="@drawable/shape_r3_sol_38a503"
+			android:text="@string/select"
+			android:textColor="@android:color/white"
+			android:textSize="12sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/view"/>
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/mediaRecyclerView"
+			android:layout_width="0dp"
+			android:layout_height="48dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginBottom="16dp"
+			app:layout_constraintBottom_toTopOf="@+id/view"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:tabIndicatorHeight="0dp">
+
+		</android.support.v7.widget.RecyclerView>
+
+	</android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

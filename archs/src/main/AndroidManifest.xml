@@ -1,0 +1,38 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.teaphy.archs">
+
+	<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+
+	<application>
+
+		<!-- 图片选择 -->
+		<provider
+			android:authorities="com.teaphy.archs"
+			android:exported="false"
+			android:grantUriPermissions="true"
+			android:name="android.support.v4.content.FileProvider">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/file_paths"/>
+		</provider>
+
+		<activity
+			android:name="com.teaphy.archs.photos.ui.PhotoSelectActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name="com.teaphy.archs.photos.ui.PhotoFoldersActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name="com.teaphy.archs.photos.ui.PhotosSelectByFolderActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name="com.teaphy.archs.photos.ui.PreviewMediaActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name="com.teaphy.archs.photos.ui.PreviewAllActivity"
+			android:screenOrientation="portrait"/>
+		<activity
+			android:name="com.teaphy.archs.photos.ui.ExternalPreviewActivity"
+			android:screenOrientation="portrait"/>
+	</application>
+</manifest>

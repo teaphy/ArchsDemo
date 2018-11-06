@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:paddingTop="25dp"
+	tools:context=".test.PhotosTestActivity">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+		<Button
+			android:id="@+id/select_button"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="选择"/>
+
+		<RadioGroup
+			android:id="@+id/select_model_group"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<RadioButton
+				android:id="@+id/single_radio"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:checked="true"
+				android:text="单选"/>
+
+			<RadioButton
+				android:id="@+id/multiple_radio"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="多选"/>
+		</RadioGroup>
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/preview_button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="预览"/>
+
+	<TextView
+		android:id="@+id/media_text"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingEnd="14dp"
+		android:paddingStart="14dp"/>
+</LinearLayout>

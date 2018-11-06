@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/root"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:background="@android:color/white">
+
+	<com.teaphy.archs.widget.IconFontTextView
+		android:id="@+id/iftvLogo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<TextView
+		android:id="@+id/tvTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="14sp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/iftvLogo"
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<com.teaphy.archs.widget.IconFontTextView
+		android:id="@+id/iftvRight"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_launcher"
+		android:gravity="center"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<TextView
+		android:id="@+id/tvDesc"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="12sp"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/iftvRight"/>
+
+	<View
+		android:id="@+id/viewUnderLine"
+		android:layout_width="0dp"
+		android:layout_height="1dp"
+		android:background="@android:color/holo_blue_bright"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintBottom_toBottomOf="parent"/>
+</android.support.constraint.ConstraintLayout>

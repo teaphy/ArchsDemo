@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center_horizontal">
+
+			<com.teaphy.archs.widget.FunctionImageView
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				app:logoRes="@mipmap/ic_tree"
+				app:logoWidth="48dp"
+				app:logoHeight="48dp"
+				app:logoType="common"
+				app:fivContent="@string/share"
+				app:fivColor="@color/color33"
+				app:fivSize="14"
+				app:fivBetween="6dp"/>
+
+			<com.teaphy.archs.widget.FunctionImageView
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				app:logoRes="@mipmap/ic_tree"
+				app:logoWidth="48dp"
+				app:logoHeight="48dp"
+				app:logoType="circle"
+				app:fivContent="@string/share"
+				app:fivColor="@color/color33"
+				app:fivSize="14"
+				app:fivBetween="6dp"/>
+
+			<com.teaphy.archs.widget.FunctionImageView
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				app:logoRes="@mipmap/ic_tree"
+				app:logoWidth="48dp"
+				app:logoHeight="48dp"
+				app:logoType="round"
+				app:logoRoundRadius="6dp"
+				app:fivContent="@string/share"
+				app:fivColor="@color/color33"
+				app:fivSize="14"
+				app:fivBetween="6dp"/>
+
+			<com.teaphy.archs.widget.FunctionFontView
+				android:layout_width="96dp"
+				android:layout_height="96dp"
+				app:logoIcon="@string/ic_mine_income"
+				app:logoColor="@color/colorPrimary"
+				app:logoSize="36"
+				app:descContent="收入"
+				app:descSize="14"
+				app:spaceBetween="6dp"
+				app:descColor="@color/color33">
+
+			</com.teaphy.archs.widget.FunctionFontView>
+		</LinearLayout>
+	</ScrollView>
+</layout>

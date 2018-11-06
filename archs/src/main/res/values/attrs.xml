@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="BackTitleFontView">
+		<attr format="color" name="title_background_color"/>
+		<attr format="string" name="title_back_icon"/>
+		<attr format="color" name="title_text_color"/>
+		<attr format="color" name="title_back_color"/>
+		<attr format="dimension" name="title_text_size"/>
+		<attr format="dimension" name="title_back_size"/>
+	</declare-styleable>
+
+	<declare-styleable name="FunctionFontView">
+		<attr format="string" name="logoIcon"/>
+		<attr format="integer" name="logoSize"/>
+		<attr format="color" name="logoColor"/>
+		<attr format="string" name="descContent"/>
+		<attr format="integer" name="descSize"/>
+		<attr format="color" name="descColor"/>
+		<attr format="dimension" name="spaceBetween"/>
+	</declare-styleable>
+
+	<declare-styleable name="FunctionImageView">
+		// 图片资源
+		<attr format="reference" name="logoRes"/>
+		// 宽度
+		<attr format="dimension" name="logoWidth"/>
+		// 高度
+		<attr format="dimension" name="logoHeight"/>
+		<attr format="enum" name="logoType">
+			<enum name="common" value="1"/>
+			<enum name="circle" value="2"/>
+			<enum name="round" value="3"/>
+		</attr>
+		<attr format="dimension" name="logoRoundRadius"/>
+
+		<attr format="string" name="fivContent"/>
+		<attr format="integer" name="fivSize"/>
+		<attr format="color" name="fivColor"/>
+		<attr format="dimension" name="fivBetween"/>
+	</declare-styleable>
+
+
+	<declare-styleable name="PreImageView">
+		<attr format="reference|color" name="pivBackground"/>
+		// View的宽度
+		<attr format="dimension" name="pivWidth"/>
+		// View的高度
+		<attr format="dimension" name="pivHeight"/>
+
+		// Logo的图片资源
+		<attr format="reference" name="pivLogoRes"/>
+		// Logo图片的宽度和高度
+		<attr format="dimension" name="pivLogoWidth"/>
+		<attr format="dimension" name="pivLogoHeight"/>
+		// Logo与左侧栏的间距
+		<attr format="dimension" name="pivLogoStart"/>
+		// Logo是否可见
+		<attr format="boolean" name="pivLogoVisibility"/>
+
+		// 标题
+		<attr format="string|reference" name="pivTitle"/>
+		<attr format="integer" name="pivTitleSize"/>
+		<attr format="color" name="pivTitleColor"/>
+		// 标题与Logo的间距
+		<attr format="dimension" name="pivTitleStart"/>
+
+		// 描述
+		<attr format="string" name="pivDesc"/>
+		<attr format="integer" name="pivDescSize"/>
+		<attr format="color" name="pivDescColor"/>
+		// 描述与右侧图标的间距
+		<attr format="dimension" name="pivDescEnd"/>
+
+		// 右侧图标
+		<attr format="reference" name="pivRightRes"/>
+		<attr format="dimension" name="pivRightWidth"/>
+		<attr format="dimension" name="pivRightHeight"/>
+		// 右侧图标与右侧
+		<attr format="dimension" name="pivRightEnd"/>
+		// 右侧图标是否显示
+		<attr format="boolean" name="pivRightVisible"/>
+
+		// 底部分割线
+		<attr format="dimension" name="pivUnderLineHeight"/>
+		<attr format="color" name="pivUnderLineColor"/>
+		// 与左侧栏的间距
+		<attr format="dimension" name="pivUnderLineStart"/>
+		// 与右侧栏间距
+		<attr format="dimension" name="pivUnderLineEnd"/>
+		// 分割线是否显示
+		<attr format="boolean" name="pivUnderLineVisible"/>
+	</declare-styleable>
+
+	<declare-styleable name="PreIconFontView">
+		<attr format="reference|color" name="pifvBackground"/>
+		// View的宽度
+		<attr format="dimension" name="pifvWidth"/>
+		// View的高度
+		<attr format="dimension" name="pifvHeight"/>
+
+		// Logo的 字体内容
+		<attr format="string" name="pifvLogo"/>
+		// 字体大小
+		<attr format="integer" name="pifvLogoSize"/>
+		<attr format="color" name="pifvLogoColor"/>
+		<attr format="dimension" name="pifvLogoWidth"/>
+		// Logo与左侧栏的间距
+		<attr format="dimension" name="pifvLogoStart"/>
+		<attr format="boolean" name="pifvLogoVisibility"/>
+
+		// 标题
+		<attr format="string" name="pifvTitle"/>
+		<attr format="integer" name="pifvTitleSize"/>
+		<attr format="color" name="pifvTitleColor"/>
+		// 标题与左边的间距
+		<attr format="dimension" name="pifvTitleStart"/>
+
+		// 描述
+		<attr format="string" name="pifvDesc"/>
+		<attr format="integer" name="pifvDescSize"/>
+		<attr format="color" name="pifvDescColor"/>
+		// 描述与右侧图标的间距
+		<attr format="dimension" name="pifvDescEnd"/>
+
+		// 右侧图标
+		<attr format="string" name="pifvRight"/>
+		// 图标的宽度
+		<attr format="dimension" name="pifvRightWidth"/>
+		// 图标大小
+		<attr format="integer" name="pifvRightSize"/>
+		// 图标颜色
+		<attr format="color" name="pifvRightColor"/>
+		// 右侧图标与右侧
+		<attr format="dimension" name="pifvRightEnd"/>
+		// 右侧图标是否显示
+		<attr format="boolean" name="pifvRightVisible"/>
+
+		// 底部分割线
+		<attr format="dimension" name="pifvUnderLineHeight"/>
+		<attr format="color" name="pifvUnderLineColor"/>
+		// 与左侧栏的间距
+		<attr format="dimension" name="pifvUnderLineStart"/>
+		// 与右侧栏间距
+		<attr format="dimension" name="pifvUnderLineEnd"/>
+		// 分割线是否显示
+		<attr format="boolean" name="pifvUnderLineVisible"/>
+	</declare-styleable>
+
+	<declare-styleable name="BackTitleImageView">
+		// 高度
+		<attr format="reference|color" name="tvivHeight"/>
+		// 背景
+		<attr format="reference" name="tvivBackground"/>
+
+		// 返回按钮
+		// 宽度
+		<attr format="dimension" name="tvivBackWidth"/>
+		// 高度
+		<attr format="dimension" name="tvivBackHeight"/>
+		// 图片资源
+		<attr format="reference" name="tvivBackRes"/>
+
+		// 标题
+		<attr format="string" name="tvivTitle"/>
+		// 字体颜色
+		<attr format="color" name="tvivTitleColor"/>
+		// 字体大小
+		<attr format="integer" name="tvivTitleSize"/>
+
+		// 功能按钮
+		// 是否需要功能按钮
+		<attr format="boolean" name="tvivFuncNedd"/>
+		// 宽度
+		<attr format="dimension" name="tvivFuncWidth"/>
+		// 高度
+		<attr format="dimension" name="tvivFuncHeight"/>
+		// 图片资源
+		<attr format="reference" name="tvivFuncRes"/>
+	</declare-styleable>
+</resources>

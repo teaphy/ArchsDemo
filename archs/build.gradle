@@ -1,0 +1,98 @@
+apply plugin: 'com.android.library'
+
+// kotlin plugin
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+	compileSdkVersion build_versions.target_sdk
+	buildToolsVersion build_versions.build_tools
+
+	defaultConfig {
+		minSdkVersion build_versions.min_sdk
+		targetSdkVersion build_versions.target_sdk
+		versionCode 2018100901.toInteger()
+		versionName "0.0.3"
+		multiDexEnabled true
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+	}
+
+	dataBinding {
+		enabled true
+	}
+
+	buildTypes {
+
+		debug {
+			minifyEnabled false
+			// 设置是否为正式环境
+			buildConfigField("boolean", "IS_RELEASE", "false")
+		}
+
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			// 设置是否为正式环境
+			buildConfigField("boolean", "IS_RELEASE", "true")
+		}
+	}
+
+}
+
+kapt {
+	generateStubs = true
+}
+
+dependencies {
+	implementation fileTree(include: ['*.jar'], dir: 'libs')
+	// test
+	testImplementation 'junit:junit:4.12'
+	androidTestImplementation 'com.android.support.test:runner:1.0.2'
+	androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+	// support
+	implementation deps.support.app_compat
+	implementation deps.support.recyclerview
+	implementation deps.support.design
+	implementation deps.support.v4
+	implementation deps.support.cardview
+	// ConstrainLayout
+	implementation deps.constraint_layout
+	// UtilCode
+	implementation deps.utilcode
+	// kotlin
+	implementation deps.kotlin.stdlib
+	// RxKotlin
+	implementation deps.rx_kotlin
+	implementation deps.rx_android
+	// DataBinding
+//	kapt deps.databinding_compiler
+	// lifecycle
+	implementation deps.lifecycle.runtime
+	implementation deps.lifecycle.extensions
+	kapt deps.lifecycle.compiler
+	// gson
+	implementation deps.gson
+	// Glide
+	implementation deps.glide.runtime
+	kapt deps.glide.compiler
+	// retrofit
+	implementation deps.retrofit.runtime
+	implementation deps.retrofit.gson
+	implementation deps.retrofit.rxjava2
+	// RxPermissions
+	implementation deps.rx_permissions
+	// smartrefresh(用于下拉刷新、上拉加载)
+	implementation deps.smartrefresh
+
+	// 高德地图定位
+	implementation 'com.amap.api:location:4.0.1'
+
+	// timber
+	implementation deps.timber
+
+	// zxing
+	implementation 'com.google.zxing:core:3.3.3'
+	implementation 'com.google.zxing:android-core:3.3.0'
+}
