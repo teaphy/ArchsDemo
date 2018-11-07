@@ -9,6 +9,6 @@ class UrlConstant {
 	companion object {
 
 		// 京东万象获取新闻数据
-		const val QUERY_NEWS = "jisuapi/get"
+		const val QUERY_NEWS = "toutiao/index"
 	}
 }

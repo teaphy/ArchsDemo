@@ -51,7 +51,7 @@
 			<com.teaphy.archs.widget.FunctionFontView
 				android:layout_width="96dp"
 				android:layout_height="96dp"
-				app:logoIcon="@string/ic_mine_income"
+				app:logoIcon="@string/ic_money"
 				app:logoColor="@color/colorPrimary"
 				app:logoSize="36"
 				app:descContent="收入"

@@ -2,9 +2,11 @@
 	<string name="app_name">AfcsDemo</string>
 	<string name="action_settings">Settings</string>
 
-	<string name="ic_mine_income">&#xe620;</string>
-	<string name="ic_right">&#xe658;</string>
-	<string name="ic_back">&#xe625;</string>
+	<string name="ic_money">&#xe73f;</string>
+	<string name="ic_settings">&#xe6ef;</string>
+	<string name="ic_message">&#xe66b;</string>
+	<string name="ic_right">&#xe624;</string>
+	<string name="ic_back">&#xe677;</string>
 
 	<!-- TODO: Remove or change this placeholder text -->
 	<string name="hello_blank_fragment">Hello blank fragment</string>

@@ -11,11 +11,11 @@ import com.teaphy.archs.demo.data.NewsBean
 class NewsDiffCallback: DiffUtil.ItemCallback<NewsBean>() {
 	override fun areItemsTheSame(oldItem: NewsBean, newItem: NewsBean): Boolean {
 
-		return oldItem.weburl == newItem.weburl
+		return oldItem.url == newItem.url
 	}
 
 	override fun areContentsTheSame(oldItem: NewsBean, newItem: NewsBean): Boolean {
 
-		return oldItem.weburl == newItem.weburl
+		return oldItem.url == newItem.url
 	}
 }

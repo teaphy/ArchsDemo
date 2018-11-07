@@ -54,8 +54,8 @@ class MyApplication : BaseApplication() {
 		}
 
 		with(ArchConfig) {
-			URL_REMOTE_BASE = "https://way.jd.com/"
-			NAME_FILE_ICON_FONT = "iconfont_20180515.ttf"
+			URL_REMOTE_BASE = "http://v.juhe.cn/"
+			NAME_FILE_ICON_FONT = "iconfont_20181106.ttf"
 		}
 	}
 }

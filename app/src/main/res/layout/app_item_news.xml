@@ -25,7 +25,7 @@
 			android:layout_marginBottom="14dp"
 			android:layout_marginStart="14dp"
 			android:scaleType="centerCrop"
-			app:loadImage="@{newsBean.pic}"
+			app:loadImage="@{newsBean.thumbnail_pic_s}"
 			tools:src="@mipmap/ic_tree"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
 			android:textSize="12sp"
 			android:textColor="@color/color99"
 			tools:text="新浪科技"
-			android:text="@{newsBean.src}"
+			android:text="@{newsBean.author_name}"
 			app:layout_constraintStart_toEndOf="@+id/ivNews"
 			app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
 
@@ -62,7 +62,7 @@
 			android:id="@+id/tvTime"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@{newsBean.time}"
+			android:text="@{newsBean.date}"
 			android:textColor="@color/color66"
 			android:textSize="12sp"
 			tools:text="2018-08-23 11:11:00"

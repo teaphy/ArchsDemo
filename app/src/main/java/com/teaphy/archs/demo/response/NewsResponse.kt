@@ -1,11 +1,9 @@
 package com.teaphy.archs.demo.response
 
-import com.teaphy.archs.base.BaseResponse
-import com.teaphy.archs.base.BaseResponseBean
 import com.teaphy.archs.retrofit.strategy.CustomRetrofitStrategy
 import com.teaphy.archs.retrofit.strategy.RetrofitHelper
-import com.teaphy.archs.demo.api.JdNewsApi
-import com.teaphy.archs.demo.data.JdNewsResult
+import com.teaphy.archs.demo.api.NewsApi
+import com.teaphy.archs.demo.data.JuheResult
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,13 +13,13 @@ import io.reactivex.schedulers.Schedulers
  * @author teaphy
  * @time 2018/8/30 上午11:07
  */
-class NewsReponse  {
+class NewsResponse  {
 
 	val customApi = RetrofitHelper(CustomRetrofitStrategy()).getRetrofit()
-	.create(JdNewsApi::class.java)
+	.create(NewsApi::class.java)
 
-	fun queryNews(parmas: MutableMap<String, Any>): Flowable<JdNewsResult> {
-		return customApi.queryJdNews(parmas)
+	fun queryNews(params: MutableMap<String, String>): Flowable<JuheResult> {
+		return customApi.queryNews(params)
 				.subscribeOn(Schedulers.io())
 				.observeOn(AndroidSchedulers.mainThread())
 	}

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import com.teaphy.archs.adapter.DataBoundListAdapter
 import com.teaphy.archs.view.IItemCallback
 import com.teaphy.archs.demo.R
-import com.teaphy.archs.demo.data.NewsBean
 import com.teaphy.archs.demo.databinding.AppItemNewsBinding
 import com.teaphy.archs.demo.BR
+import com.teaphy.archs.demo.data.NewsBean
 
 /**
  * @desc

@@ -10,11 +10,11 @@ import com.teaphy.archs.base.refresh.RefreshDataSource
 import com.teaphy.archs.view.IItemCallback
 import com.teaphy.archs.demo.R
 import com.teaphy.archs.demo.adapter.NewsAdapter
-import com.teaphy.archs.demo.data.NewsBean
 import com.teaphy.archs.demo.databinding.AppItemNewsBinding
 import com.teaphy.archs.demo.databinding.FragmentHomeBinding
 import com.teaphy.archs.demo.ui.main.NewsViewModel
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
+import com.teaphy.archs.demo.data.NewsBean
 
 class NewsActivity : BaseRefreshActivity<FragmentHomeBinding, NewsViewModel, NewsBean, AppItemNewsBinding, NewsAdapter>() {
 
@@ -39,7 +39,7 @@ class NewsActivity : BaseRefreshActivity<FragmentHomeBinding, NewsViewModel, New
 
 		mAdapter.onItemClickCallback = object : IItemCallback<NewsBean> {
 			override fun onItemClick(item: NewsBean) {
-				NewsWebViewActivity.gotoNewsWebViewActivity(this@NewsActivity, item.weburl, item.title)
+				NewsWebViewActivity.gotoNewsWebViewActivity(this@NewsActivity, item.url, item.title)
 			}
 
 		}
@@ -62,7 +62,7 @@ class NewsActivity : BaseRefreshActivity<FragmentHomeBinding, NewsViewModel, New
 	}
 
 	override fun queryData() {
-		mViewModel.queryNews(channel, num, currentPage, appkey)
+		mViewModel.queryNews()
 	}
 
 	override fun initViewModel(): NewsViewModel {
