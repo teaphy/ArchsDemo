@@ -9,7 +9,7 @@ import com.blankj.utilcode.util.SizeUtils
 import com.teaphy.archs.view.IItemCallback
 import com.teaphy.archs.R
 import com.teaphy.archs.photos.config.PictureConfig
-import com.teaphy.archs.photos.decoration.SpacesItemDecoration
+import com.teaphy.archs.widget.divider.SpacesItemDecoration
 import com.teaphy.archs.photos.entity.LocalMedia
 import com.teaphy.archs.photos.entity.LocalMediaFolder
 import com.teaphy.archs.photos.loader.ILocalMediaLoadListener

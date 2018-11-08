@@ -1,4 +1,4 @@
-package com.teaphy.archs.photos.decoration
+package com.teaphy.archs.widget.divider
 
 import android.graphics.Rect
 import android.support.v7.widget.LinearLayoutManager
@@ -7,7 +7,7 @@ import android.view.View
 
 /**
  * @author teaphy
- * @desc 设置Item间距
+ * @desc 设置Item间距  - LinearLayoutManager
  * @time 2018/10/10 下午1:27
  */
 class SpacesItemDecoration(private val space: Int, private val spaceTop: Int = 0) : RecyclerView.ItemDecoration() {

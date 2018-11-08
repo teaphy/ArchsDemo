@@ -20,23 +20,17 @@ import com.teaphy.archs.permissions.IGrantedFailure
 import com.teaphy.archs.permissions.IGrantedSuccess
 import com.teaphy.archs.permissions.RxPermissionUtil
 import com.teaphy.archs.view.IItemCallback
-import com.tbruyelle.rxpermissions2.RxPermissions
 import com.teaphy.archs.photos.config.PictureConfig
 import com.teaphy.archs.photos.config.PictureSelectConfig
 import com.teaphy.archs.photos.constant.PictureTypeConstant
-import com.teaphy.archs.photos.decoration.GridSpacingItemDecoration
+import com.teaphy.archs.widget.divider.GridSpacingItemDecoration
 import com.teaphy.archs.photos.listener.ISelectChangeListener
 import com.teaphy.archs.photos.observe.CancelSubject
 import java.io.File
 import java.io.IOException
 import java.util.ArrayList
-import android.content.ContentValues
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.os.Handler
 import android.support.constraint.ConstraintLayout
-import com.teaphy.archs.photos.loader.ITakePhotoListener
-import com.teaphy.archs.photos.loader.LocalMediaLoader
 import com.umeng.socialize.utils.DeviceConfig.context
 import android.support.v4.content.FileProvider
 import com.blankj.utilcode.util.SizeUtils
@@ -113,9 +107,9 @@ abstract class BasePhotoSelectorActivity : BasePhotosActivity() {
 		with(recyclerView) {
 			val manager = GridLayoutManager(this@BasePhotoSelectorActivity, 3)
 			addItemDecoration(GridSpacingItemDecoration(3,
-					SizeUtils.dp2px(6f),
-					true,
-					SizeUtils.dp2px(64f)))
+                    SizeUtils.dp2px(6f),
+                    true,
+                    SizeUtils.dp2px(64f)))
 			layoutManager = manager
 			// 解决调用 notifyItemChanged 闪烁问题,取消默认动画
 			(itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false

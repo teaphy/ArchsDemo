@@ -19,7 +19,7 @@ import com.teaphy.archs.view.IItemCallback
 import com.teaphy.archs.R
 import com.teaphy.archs.photos.config.PictureConfig
 import com.teaphy.archs.photos.config.PictureSelectConfig
-import com.teaphy.archs.photos.decoration.SpacesItemDecoration
+import com.teaphy.archs.widget.divider.SpacesItemDecoration
 import com.teaphy.archs.photos.entity.LocalMedia
 import com.teaphy.archs.photos.observe.CancelSubject
 import com.teaphy.archs.photos.widget.CustomViewPager

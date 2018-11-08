@@ -119,6 +119,7 @@
 				app:pivUnderLineVisible="true"/>
 
 			<com.teaphy.archs.widget.PreImageView
+				android:id="@+id/settings_view"
 				android:layout_width="match_parent"
 				android:layout_height="48dp"
 				app:pivDesc="设置"

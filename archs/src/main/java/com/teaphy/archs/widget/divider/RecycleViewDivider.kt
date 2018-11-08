@@ -1,4 +1,4 @@
-package com.teaphy.archs.photos.decoration
+package com.teaphy.archs.widget.divider
 
 import android.content.Context
 import android.graphics.Canvas
