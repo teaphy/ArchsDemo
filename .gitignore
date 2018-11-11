@@ -40,3 +40,4 @@ app/src/test/
 gradle/
 gradlew
 gradlew.bat
+*.udb
