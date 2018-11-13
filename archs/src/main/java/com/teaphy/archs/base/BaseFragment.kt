@@ -122,33 +122,33 @@ abstract class BaseFragment<P: ViewDataBinding> : Fragment() {
 	/**
 	 * 打开Activity
 	 */
-	fun openActivity(intent: Intent) {
+	fun launchActivity(intent: Intent) {
 		startActivity(intent)
 	}
 
-	fun openActivityForResult(intent: Intent, requestCode: Int) {
+	fun launchActivityForResult(intent: Intent, requestCode: Int) {
 		startActivityForResult(intent, requestCode)
 	}
 
-	fun openActivity(clazz: Class<*>) {
+	fun launchActivity(clazz: Class<*>) {
 		val intent = Intent(activity, clazz)
-		openActivity(intent)
+		launchActivity(intent)
 	}
 
-	fun openActivity(clazz: Class<*>, bundle: Bundle) {
+	fun launchActivity(clazz: Class<*>, bundle: Bundle) {
 		val intent = Intent(activity, clazz)
 		intent.putExtras(bundle)
-		openActivity(intent)
+		launchActivity(intent)
 	}
 
-	fun openActivityForResult(clazz: Class<*>, requestCode: Int) {
+	fun launchActivityForResult(clazz: Class<*>, requestCode: Int) {
 		val intent = Intent(activity, clazz)
-		openActivityForResult(intent, requestCode)
+		launchActivityForResult(intent, requestCode)
 	}
 
-	fun openActivityForResult(clazz: Class<*>, bundle: Bundle, requestCode: Int) {
+	fun launchActivityForResult(clazz: Class<*>, bundle: Bundle, requestCode: Int) {
 		val intent = Intent(activity, clazz)
 		intent.putExtras(bundle)
-		openActivityForResult(intent, requestCode)
+		launchActivityForResult(intent, requestCode)
 	}
 }
