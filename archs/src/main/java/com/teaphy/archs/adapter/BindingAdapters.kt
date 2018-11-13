@@ -30,7 +30,7 @@ object BindingAdapters {
 	/**
 	 * 设置加载图片
 	 */
-	@BindingAdapter(value = ["app:loadImage"])
+	@BindingAdapter(value = ["app:remoteSrc"])
 	@JvmStatic fun loadImage(imageView: ImageView, url: String) {
 		PictureHelper().loadRemoteImage(imageView, url)
 	}
@@ -38,7 +38,7 @@ object BindingAdapters {
 	/**
 	 * 设置加载圆图片
 	 */
-	@BindingAdapter(value = ["app:loadCircleImage"])
+	@BindingAdapter(value = ["app:remoteCircleSrc"])
 	@JvmStatic fun loadCircleImage(imageView: ImageView, url: String) {
 		PictureHelper().loadRemoteCircleImage(imageView, url)
 	}
@@ -46,7 +46,7 @@ object BindingAdapters {
 	/**
 	 * 设置加载边角带有弧度的图片 必须指定边角的弧度
 	 */
-	@BindingAdapter(value = ["app:loadRoundImage", "app:roundRadius"])
+	@BindingAdapter(value = ["app:remoteRoundSrc", "app:remoteRoundRadius"])
 	@JvmStatic fun loadRoundImage(imageView: ImageView, url: String, roundRadius: Int) {
 		PictureHelper().loadRemoteRoundImage(imageView, url, roundRadius)
 	}
@@ -54,7 +54,7 @@ object BindingAdapters {
 	/**
 	 * 设置加载图片 必须设置图片的 imageUrl、placeHolder(占位图)和error(错误提示图)
 	 */
-	@BindingAdapter(value = ["app:loadImageWithHolder", "app:placeHolder","app:error"])
+	@BindingAdapter(value = ["app:remoteHolderSrc", "app:remoteHolderPlace","app:remoteHolderError"])
 	@JvmStatic fun loadImageWithHolder(imageView: ImageView, url: String,
 	                                   @DrawableRes placeholder: Int, @DrawableRes error: Int) {
 		PictureHelper().loadRemoteImage(imageView, url, placeholder, error)
@@ -63,7 +63,7 @@ object BindingAdapters {
 	/**
 	 * 设置加载圆图片 必须设置图片的 imageUrl、placeHolder(占位图)和error(错误提示图)
 	 */
-	@BindingAdapter(value = ["app:loadCircleImageWithHolder", "app:placeHolder","app:error"])
+	@BindingAdapter(value = ["app:remoteCircleHolderSrc", "app:remoteCircleHolderPlace","app:remoteCircleHolderError"])
 	@JvmStatic fun loadCircleImageWithHolder(imageView: ImageView, url: String,
 	                                         @DrawableRes placeholder: Int, @DrawableRes error: Int) {
 		PictureHelper().loadRemoteCircleImage(imageView, url, placeholder, error)
@@ -72,7 +72,10 @@ object BindingAdapters {
 	/**
 	 * 设置加载图片 必须设置图片的 imageUrl、placeHolder(占位图)和error(错误提示图)以及边角弧度
 	 */
-	@BindingAdapter(value = ["app:imagloadRoundImageWithHoldereUrl", "app:placeHolder","app:error", "app:roundRadius"])
+	@BindingAdapter(value = ["app:remoteRoundHolderSrc",
+		"app:remoteRoundHolderPlace",
+		"app:remoteRoundHolderError",
+		"app:remoteRoundHolderRadius"])
 	@JvmStatic fun loadRoundImageWithHolder(imageView: ImageView, url: String,
 	                                        @DrawableRes placeholder: Int, @DrawableRes error: Int, roundRadius: Int) {
 		PictureHelper().loadRemoteRoundImage(imageView, url, placeholder, error, roundRadius)
