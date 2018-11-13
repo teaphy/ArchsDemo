@@ -1,5 +1,6 @@
 package com.teaphy.archs.picture
 
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 
 /**
@@ -43,6 +44,10 @@ class PictureHelper constructor(private var pictureProcessor : IPictureStrategy 
 		pictureProcessor.loadRemoteImage(imageView, urlImage, placeHolder, errorHolder)
 	}
 
+	override fun loadRemoteImage(imageView: ImageView, urlImage: String, placeholder: Drawable, error: Drawable) {
+		pictureProcessor.loadRemoteImage(imageView, urlImage, placeholder, error)
+	}
+
 	override fun loadRemoteRoundImage(imageView: ImageView, urlImage: String, radius: Int) {
 		pictureProcessor.loadRemoteRoundImage(imageView, urlImage, radius)
 	}
@@ -51,11 +56,21 @@ class PictureHelper constructor(private var pictureProcessor : IPictureStrategy 
 		pictureProcessor.loadRemoteRoundImage(imageView, urlImage, radius, placeHolder, errorHolder)
 	}
 
+	override fun loadRemoteRoundImage(imageView: ImageView, urlImage: String, radius: Int,
+									  placeHolder: Drawable, errorHolder: Drawable) {
+		pictureProcessor.loadRemoteRoundImage(imageView, urlImage, radius, placeHolder, errorHolder)
+	}
+
 	override fun loadRemoteCircleImage(imageView: ImageView, urlImage: String) {
 		pictureProcessor.loadRemoteCircleImage(imageView, urlImage)
 	}
 
 	override fun loadRemoteCircleImage(imageView: ImageView, urlImage: String, placeHolder: Int, errorHolder: Int) {
+		pictureProcessor.loadRemoteCircleImage(imageView, urlImage, placeHolder, errorHolder)
+	}
+
+	override fun loadRemoteCircleImage(imageView: ImageView, urlImage: String,
+									   placeHolder: Drawable, errorHolder: Drawable) {
 		pictureProcessor.loadRemoteCircleImage(imageView, urlImage, placeHolder, errorHolder)
 	}
 }
