@@ -34,8 +34,8 @@ object BindingAdapters {
      */
     @BindingAdapter(value = ["app:remoteSrc"])
     @JvmStatic
-    fun loadImage(imageView: ImageView, url: String) {
-        PictureHelper().loadRemoteImage(imageView, url)
+    fun loadImage(imageView: ImageView, url: String?) {
+        PictureHelper().loadRemoteImage(imageView, url ?: "")
     }
 
     /**
@@ -43,8 +43,8 @@ object BindingAdapters {
      */
     @BindingAdapter(value = ["app:remoteCircleSrc"])
     @JvmStatic
-    fun loadCircleImage(imageView: ImageView, url: String) {
-        PictureHelper().loadRemoteCircleImage(imageView, url)
+    fun loadCircleImage(imageView: ImageView, url: String?) {
+        PictureHelper().loadRemoteCircleImage(imageView, url ?: "")
     }
 
     /**
@@ -52,8 +52,8 @@ object BindingAdapters {
      */
     @BindingAdapter(value = ["app:remoteRoundSrc", "app:remoteRoundRadius"])
     @JvmStatic
-    fun loadRoundImage(imageView: ImageView, url: String, roundRadius: Int) {
-        PictureHelper().loadRemoteRoundImage(imageView, url, roundRadius)
+    fun loadRoundImage(imageView: ImageView, url: String?, roundRadius: Int) {
+        PictureHelper().loadRemoteRoundImage(imageView, url ?: "", roundRadius)
     }
 
     /**
@@ -61,9 +61,9 @@ object BindingAdapters {
      */
     @BindingAdapter(value = ["app:remoteHolderSrc", "app:remoteHolderPlace", "app:remoteHolderError"])
     @JvmStatic
-    fun loadImageWithHolder(imageView: ImageView, url: String,
+    fun loadImageWithHolder(imageView: ImageView, url: String?,
                             placeholder: Drawable, error: Drawable) {
-        PictureHelper().loadRemoteImage(imageView, url, placeholder, error)
+        PictureHelper().loadRemoteImage(imageView, url ?: "", placeholder, error)
     }
 
     /**
@@ -71,9 +71,9 @@ object BindingAdapters {
      */
     @BindingAdapter(value = ["app:remoteCircleHolderSrc", "app:remoteCircleHolderPlace", "app:remoteCircleHolderError"])
     @JvmStatic
-    fun loadCircleImageWithHolder(imageView: ImageView, url: String,
+    fun loadCircleImageWithHolder(imageView: ImageView, url: String?,
                                   placeholder: Drawable, error: Drawable) {
-        PictureHelper().loadRemoteCircleImage(imageView, url, placeholder, error)
+        PictureHelper().loadRemoteCircleImage(imageView, url ?: "", placeholder, error)
     }
 
     /**
@@ -84,9 +84,9 @@ object BindingAdapters {
         "app:remoteRoundHolderPlace",
         "app:remoteRoundHolderError"])
     @JvmStatic
-    fun loadRoundImageWithHolder(imageView: ImageView, url: String, roundRadius: Int,
+    fun loadRoundImageWithHolder(imageView: ImageView, url: String?, roundRadius: Int,
                                  placeholder: Drawable, error: Drawable) {
-        PictureHelper().loadRemoteRoundImage(imageView, url, roundRadius, placeholder, error)
+        PictureHelper().loadRemoteRoundImage(imageView, url ?: "", roundRadius, placeholder, error)
     }
 
 
