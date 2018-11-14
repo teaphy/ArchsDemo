@@ -65,7 +65,7 @@
 		<attr format="dimension" name="pivTitleStart"/>
 
 		// 描述
-		<attr format="string" name="pivDesc"/>
+		<attr format="string|reference" name="pivDesc"/>
 		<attr format="integer" name="pivDescSize"/>
 		<attr format="color" name="pivDescColor"/>
 		// 描述与右侧图标的间距

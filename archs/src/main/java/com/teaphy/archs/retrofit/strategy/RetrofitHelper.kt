@@ -9,6 +9,7 @@ import retrofit2.Retrofit
  * @time 2018/7/28 下午2:32
  */
 class RetrofitHelper(private val retrofitStrategy: IRetrofitStrategy): IRetrofitStrategy {
+
 	override fun getRetrofit(): Retrofit {
 		return retrofitStrategy.getRetrofit()
 	}
@@ -20,5 +21,10 @@ class RetrofitHelper(private val retrofitStrategy: IRetrofitStrategy): IRetrofit
 	override fun getRetrofit(urlBase: String): Retrofit {
 		return retrofitStrategy.getRetrofit(urlBase)
 	}
+
+	override fun getRetrofit(urlBase: String, okHttpClient: OkHttpClient): Retrofit {
+		return retrofitStrategy.getRetrofit(urlBase, okHttpClient)
+	}
+
 
 }

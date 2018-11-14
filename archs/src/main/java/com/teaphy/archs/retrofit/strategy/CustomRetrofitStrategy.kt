@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit
  */
 class CustomRetrofitStrategy : IRetrofitStrategy {
 
-
 	private object Inner{
 		// 创建默认Retrofit
 		val INSTANCE =  CustomRetrofitStrategy()
@@ -72,4 +71,14 @@ class CustomRetrofitStrategy : IRetrofitStrategy {
 			addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 		}
 	}
+
+	override fun getRetrofit(urlBase: String, okHttpClient: OkHttpClient): Retrofit {
+		return retrofitBuilder {
+			baseUrl(urlBase)
+			addConverterFactory(GsonConverterFactory.create())
+			addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+			client(okHttpClient)
+		}
+	}
+
 }

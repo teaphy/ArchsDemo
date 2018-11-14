@@ -2,6 +2,7 @@ package com.teaphy.archs.picture
 
 import android.graphics.drawable.Drawable
 import android.support.annotation.DrawableRes
+import android.text.TextUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -103,6 +104,8 @@ class GlideStrategy : IPictureStrategy {
 	 * @date 2018/7/28 下午3:32
 	 */
 	override fun loadRemoteImage(imageView: ImageView, urlImage: String) {
+
+
 		val requestOptions = requestOptionBuilder {
 			diskCacheStrategy(DiskCacheStrategy.ALL)
 			fitCenter()
@@ -121,32 +124,45 @@ class GlideStrategy : IPictureStrategy {
 	 */
 	override fun loadRemoteImage(imageView: ImageView, urlImage: String,
 	                    @DrawableRes placeHolder: Int, @DrawableRes errorHolder: Int) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			fitCenter()
-			placeholder(placeHolder)
-			error(errorHolder)
-		}
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                fitCenter()
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
 	}
 
 
-	override fun loadRemoteImage(imageView: ImageView, urlImage: String, placeholder: Drawable, error: Drawable) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			fitCenter()
-			placeholder(placeholder)
-			error(error)
-		}
+	override fun loadRemoteImage(imageView: ImageView, urlImage: String, placeHolder: Drawable, errorHolder: Drawable) {
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                fitCenter()
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
+	
 	}
 
 	/**
@@ -174,34 +190,49 @@ class GlideStrategy : IPictureStrategy {
 	 */
 	override fun loadRemoteRoundImage(imageView: ImageView, urlImage: String, radius: Int,
 	                         @DrawableRes placeHolder: Int, @DrawableRes errorHolder: Int) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			fitCenter()
-			transform(RoundedCorners(radius))
-			placeholder(placeHolder)
-			error(errorHolder)
-		}
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                fitCenter()
+                transform(RoundedCorners(radius))
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
+
 	}
 
 	override fun loadRemoteRoundImage(imageView: ImageView, urlImage: String, radius: Int,
 									  placeHolder: Drawable, errorHolder: Drawable) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			fitCenter()
-			transform(RoundedCorners(radius))
-			placeholder(placeHolder)
-			error(errorHolder)
-		}
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                fitCenter()
+                transform(RoundedCorners(radius))
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
+
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
+
 	}
 
 	/**
@@ -234,33 +265,46 @@ class GlideStrategy : IPictureStrategy {
 	 */
 	override fun loadRemoteCircleImage(imageView: ImageView, urlImage: String,
 	                          @DrawableRes placeHolder: Int, @DrawableRes errorHolder: Int) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			circleCrop()
-			autoClone()
-			placeholder(placeHolder)
-			error(errorHolder)
-		}
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                circleCrop()
+                autoClone()
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
+
 	}
 
 	override fun loadRemoteCircleImage(imageView: ImageView, urlImage: String,
 									   placeHolder: Drawable, errorHolder: Drawable) {
-		val requestOptions = requestOptionBuilder {
-			diskCacheStrategy(DiskCacheStrategy.ALL)
-			circleCrop()
-			autoClone()
-			placeholder(placeHolder)
-			error(errorHolder)
-		}
+        if (TextUtils.isEmpty(urlImage)) {
+            Glide.with(imageView)
+                    .load(errorHolder)
+                    .into(imageView)
+        } else {
+            val requestOptions = requestOptionBuilder {
+                diskCacheStrategy(DiskCacheStrategy.ALL)
+                circleCrop()
+                autoClone()
+                placeholder(placeHolder)
+                error(errorHolder)
+            }
 
-		Glide.with(imageView)
-				.load(urlImage)
-				.apply(requestOptions)
-				.into(imageView)
+            Glide.with(imageView)
+                    .load(urlImage)
+                    .apply(requestOptions)
+                    .into(imageView)
+        }
 	}
 }

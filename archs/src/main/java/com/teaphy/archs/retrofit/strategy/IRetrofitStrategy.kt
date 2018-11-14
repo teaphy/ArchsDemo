@@ -17,4 +17,7 @@ interface IRetrofitStrategy {
 
 	// 自定义BaseURL
 	fun getRetrofit(urlBase: String): Retrofit
+	
+	// 自定义BaseURL及OkHttpClient
+	fun getRetrofit(urlBase: String, okHttpClient: OkHttpClient): Retrofit
 }
