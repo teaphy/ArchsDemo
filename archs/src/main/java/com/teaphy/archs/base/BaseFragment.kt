@@ -89,6 +89,10 @@ abstract class BaseFragment<P: ViewDataBinding> : Fragment() {
 		mCompositeDisposable.add(disposable)
 	}
 
+	fun addDisposable(operate: () -> Disposable) {
+		mCompositeDisposable.add(operate.invoke())
+	}
+
 	/**
 	 * Toast
 	 * @author teaphy

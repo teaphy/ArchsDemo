@@ -58,7 +58,11 @@ abstract class BaseWebViewActivity<P : ViewDataBinding> : BaseActivity<P>() {
 			// 在 Android 4.1 及以后默认是false,也就是禁止
 			// 如果此设置是允许，则 setAllowFileAccessFromFileURLs 不起做用
 			allowUniversalAccessFromFileURLs = false
-		}
+
+            //设置加载进来的页面自适应手机屏幕
+            useWideViewPort = true
+            loadWithOverviewMode = true
+        }
 
 		with(webView) {
 			// 初始化WebViewClient
@@ -95,8 +99,12 @@ abstract class BaseWebViewActivity<P : ViewDataBinding> : BaseActivity<P>() {
 	 * 加载Html字符串
 	 * 例如： loadData(body, "text/html; charset=UTF-8", null)
 	 */
-	fun loadData(data: String, mimeType: String, encoding: String) {
+	fun loadData(data: String, mimeType: String?, encoding: String?) {
 		webView.loadData(data, mimeType, encoding)
+	}
+
+	fun loadData(data: String) {
+		loadData(data, "text/html; charset=UTF-8", null)
 	}
 
 	/**

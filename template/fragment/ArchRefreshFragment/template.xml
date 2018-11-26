@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="ArchRefreshFragment"
+    description="Creates a Arch fragment that is extended from Archs.ArchRefreshFragment"
+    minApi="7"
+    minBuildApi="8">
+
+    <category value="Fragment" />
+
+    <dependency name="android-support-v4" revision="8" />
+
+    <parameter
+        id="className"
+        name="Fragment Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="ArchRefreshFragment"
+        help="The name of the fragment class to create" />
+
+    <parameter
+        id="includeLayout"
+        name="Create layout XML?"
+        type="boolean"
+        default="true"
+        help="Generate a layout XML for the fragment" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="fragment_arch_vm"
+        visibility="includeLayout"
+        suggest="fragment_${classToResource(className)}"
+        help="The name of the layout to create" />
+
+    <parameter
+        id="viewModel"
+        name="ViewModel Name"
+        type="string"
+        constraints="class|nonempty"
+        default="ViewModel"
+        help="The name of the viewModel class to create" />
+
+    <parameter
+        id="generateViewModel"
+        name="Generate ViewModel File"
+        type="boolean"
+        default="true"
+        help="If true, a ViewModel file will be generated" />      
+
+    <parameter
+        id="generateResponse"
+        name="Generate Response File"
+        type="boolean"
+        default="true"
+        help="If true, a response file will be generated" />        
+
+    <parameter
+        id="adapterClass"
+        name="Adapter Name"
+        type="string"
+        constraints="class|nonempty"
+        default="Adapter"
+        help="The name of the adapter class to create" />
+
+    <parameter
+        id="adapterLayoutName"
+        name="AdapterLayout Name"
+        type="string"
+        constraints="layout"
+        default="layout name"
+        visibility="generateAdapter"
+        help="The name of the layout to create for the adapter" />
+
+    <parameter
+        id="generateAdapter"
+        name="Generate Adapter File"
+        type="boolean"
+        default="true"
+        help="If true, a adapter file will be generated" /> 
+
+    <parameter
+        id="sourceBean"
+        name="Source Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default=""
+        help="The name of the source class to create" />
+  
+
+    <thumbs>
+        <thumb>template_blank_fragment.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>

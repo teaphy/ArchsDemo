@@ -30,6 +30,8 @@ abstract class BaseVmActivity<P: ViewDataBinding, S :BaseViewModel> : BaseActivi
 		subscribeLoadingObserver(mViewModel)
 	}
 
+
+
 	/**
 	 * 显示加载中Dialog
 	 */

@@ -117,6 +117,10 @@ abstract class BaseActivity<P : ViewDataBinding>: AppCompatActivity(), IBackView
 		mCompositeDisposable.add(disposable)
 	}
 
+	fun addDisposable(operate: () -> Disposable) {
+		mCompositeDisposable.add(operate.invoke())
+	}
+
 	/**
 	 * 设置标题
 	 */
