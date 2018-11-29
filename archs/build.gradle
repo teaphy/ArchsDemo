@@ -87,7 +87,7 @@ dependencies {
 	implementation deps.smartrefresh
 
 	// 高德地图定位
-	implementation 'com.amap.api:location:4.0.1'
+	implementation deps.location
 
 	// timber
 	implementation deps.timber

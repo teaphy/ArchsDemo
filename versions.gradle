@@ -38,6 +38,13 @@ versions.eventbus = "3.1.1"
 versions.utilcode = "1.15.0"
 versions.smartrefresh = "1.1.0-alpha-12"
 
+// amap
+versions.amap_map3d = "6.5.0"
+versions.amap_map2d = "5.2.0"
+versions.amap_navi = "6.5.0"
+versions.amap_search = "6.5.0"
+versions.amap_location = "4.4.0"
+
 versions.dagger = "2.15"
 versions.espresso = "3.0.1"
 versions.mockwebserver = "3.8.1"
@@ -137,6 +144,21 @@ deps.zxing = "me.dm7.barcodescanner:zxing:1.9.8"
 // CircleImageView
 deps.circle_image_view = "de.hdodenhof:circleimageview:2.2.0"
 
+// amap
+def amap = [:]
+
+// 3D地图
+deps.map3d = "com.amap.api:3dmap:$versions.amap_map3d"
+// 2D地图
+deps.map2d = "com.amap.api:map2d:$versions.amap_map2d"
+// 导航
+deps.navi = "com.amap.api:navi-3dmap:$versions.amap_navi"
+// 搜索
+deps.search = "com.amap.api:search:$versions.amap_search"
+// 定位
+deps.location = "com.amap.api:location:$versions.amap_location"
+
+deps.amap = amap
 
 // Timber
 deps.timber = "com.jakewharton.timber:timber:$versions.timber"
