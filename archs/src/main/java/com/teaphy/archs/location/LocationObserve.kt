@@ -18,7 +18,7 @@ import com.teaphy.archs.permissions.RxPermissionUtil
 class LocationObserve(val activity: FragmentActivity, private val lifecycle: Lifecycle, isSingle: Boolean,
                       intervalLocation: Long, callback: ILocationCallback) : LifecycleObserver {
 
-	private val locationStrategy = LocationHelper()
+	val locationStrategy = LocationHelper()
 
 	init {
 		locationStrategy.initLocation(activity, isSingle, intervalLocation, callback)
@@ -32,26 +32,10 @@ class LocationObserve(val activity: FragmentActivity, private val lifecycle: Lif
 
 	@OnLifecycleEvent(Lifecycle.Event.ON_START)
 	fun onStart() {
-
-		val permissions = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,
-				Manifest.permission.ACCESS_FINE_LOCATION,
-				Manifest.permission.WRITE_EXTERNAL_STORAGE,
-				Manifest.permission.READ_PHONE_STATE)
-
-		RxPermissionUtil.getInstance(activity)
-				.requestAllPermissions(object : IGrantedSuccess {
-					override fun onGrantedSuccess() {
-						if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
-							// 开启定位
-							locationStrategy.startLocation()
-						}
-					}
-				}, object : IGrantedFailure {
-					override fun onGrantedFailure() {
-						ToastUtils.showShort("请开启定位相关权限")
-					}
-
-				}, *permissions)
+		if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+			// 开启定位
+			locationStrategy.startLocation()
+		}
 	}
 
 	@OnLifecycleEvent(Lifecycle.Event.ON_RESUME)

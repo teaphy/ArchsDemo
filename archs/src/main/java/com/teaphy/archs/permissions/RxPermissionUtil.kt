@@ -220,21 +220,13 @@ class RxPermissionUtil {
 	 */
 	fun requestLocation(grantedSuccess: IGrantedSuccess,
 	                    grantedFailure: IGrantedFailure) {
-
-		val isPermissionsGranted = mRxPermission.isGranted(Manifest.permission.ACCESS_COARSE_LOCATION) && mRxPermission.isGranted(Manifest.permission.ACCESS_FINE_LOCATION)
-		//没有申请过，则申请
-		if (isPermissionsGranted) {//已经申请过，直接执行操作
-			grantedSuccess.onGrantedSuccess()
-		} else
-			mRxPermission
-					.request(Manifest.permission.ACCESS_COARSE_LOCATION,
-							Manifest.permission.ACCESS_FINE_LOCATION)
-					.subscribe { isGranted ->
-						if (isGranted!!) {
-							grantedSuccess.onGrantedSuccess()
-						} else {
-							grantedFailure.onGrantedFailure()
-						}
-					}
+		
+		val permissions = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION,
+				Manifest.permission.ACCESS_FINE_LOCATION,
+				Manifest.permission.WRITE_EXTERNAL_STORAGE,
+				Manifest.permission.READ_PHONE_STATE)
+		
+		requestAllPermissions(grantedSuccess, grantedFailure, *permissions)
+		
 	}
 }
