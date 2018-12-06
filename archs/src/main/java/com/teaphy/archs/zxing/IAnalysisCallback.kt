@@ -1,4 +1,4 @@
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import android.graphics.Bitmap
 import android.os.Bundle

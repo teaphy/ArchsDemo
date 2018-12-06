@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing.camera
+package com.teaphy.archs.zxing.camera
 
 import android.content.Context
 import android.hardware.Camera

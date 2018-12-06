@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing.camera
+package com.teaphy.archs.zxing.camera
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -25,8 +25,8 @@ import android.os.Handler
 import android.util.Log
 import android.view.SurfaceHolder
 import com.google.zxing.PlanarYUVLuminanceSource
-import com.teaphy.testzxing.zxing.camera.open.OpenCamera
-import com.teaphy.testzxing.zxing.camera.open.OpenCameraInterface
+import com.teaphy.archs.zxing.camera.open.OpenCamera
+import com.teaphy.archs.zxing.camera.open.OpenCameraInterface
 
 import java.io.IOException
 

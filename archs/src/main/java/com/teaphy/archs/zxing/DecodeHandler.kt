@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import android.graphics.Bitmap
 import com.google.zxing.BinaryBitmap

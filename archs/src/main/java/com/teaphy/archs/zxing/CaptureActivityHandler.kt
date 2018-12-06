@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import android.graphics.BitmapFactory
 import com.google.zxing.Result
@@ -23,7 +23,7 @@ import android.graphics.Bitmap
 import android.os.Handler
 import android.os.Message
 import com.teaphy.archs.R
-import com.teaphy.testzxing.zxing.camera.CameraManager
+import com.teaphy.archs.zxing.camera.CameraManager
 
 /**
  * This class handles all the messaging which comprises the state machine for fragment_capture.

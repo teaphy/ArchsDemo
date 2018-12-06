@@ -25,7 +25,6 @@ abstract class BaseCustomRefreshFragment<
 		P : ViewDataBinding,
 		S : BaseViewModel,
 		T,
-		K : ViewDataBinding,
 		A : ListAdapter<T, RecyclerView.ViewHolder>> : BaseVmFragment<P, S>() {
 
 	lateinit var refreshLayout: SmartRefreshLayout

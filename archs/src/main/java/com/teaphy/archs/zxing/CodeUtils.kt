@@ -1,4 +1,4 @@
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -17,8 +17,8 @@ import com.google.zxing.common.BitMatrix
 import com.google.zxing.common.HybridBinarizer
 import com.google.zxing.qrcode.QRCodeWriter
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
-import com.teaphy.testzxing.zxing.camera.BitmapLuminanceSource
-import com.teaphy.testzxing.zxing.camera.CameraManager
+import com.teaphy.archs.zxing.camera.BitmapLuminanceSource
+import com.teaphy.archs.zxing.camera.CameraManager
 import java.util.Hashtable
 import java.util.Vector
 

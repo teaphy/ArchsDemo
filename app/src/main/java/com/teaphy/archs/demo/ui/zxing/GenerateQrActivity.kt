@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.SizeUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.teaphy.archs.demo.R
-import com.teaphy.testzxing.zxing.CodeUtils
+import com.teaphy.archs.zxing.CodeUtils
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException

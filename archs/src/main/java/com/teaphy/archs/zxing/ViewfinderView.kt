@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import com.google.zxing.ResultPoint
 
@@ -26,7 +26,7 @@ import android.support.v4.app.ActivityCompat
 import android.util.AttributeSet
 import android.view.View
 import com.teaphy.archs.R
-import com.teaphy.testzxing.zxing.camera.CameraManager
+import com.teaphy.archs.zxing.camera.CameraManager
 
 import java.util.ArrayList
 

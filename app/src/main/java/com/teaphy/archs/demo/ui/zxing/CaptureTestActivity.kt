@@ -7,9 +7,9 @@ import android.os.Bundle
 import com.google.zxing.Result
 import com.teaphy.archs.photos.ui.BasePhotoSelectorActivity
 import com.teaphy.archs.demo.R
-import com.teaphy.testzxing.zxing.CaptureFragment
-import com.teaphy.testzxing.zxing.CodeUtils
-import com.teaphy.testzxing.zxing.IAnalysisCallback
+import com.teaphy.archs.zxing.CaptureFragment
+import com.teaphy.archs.zxing.CodeUtils
+import com.teaphy.archs.zxing.IAnalysisCallback
 import kotlinx.android.synthetic.main.activity_capture_test.*
 
 /**

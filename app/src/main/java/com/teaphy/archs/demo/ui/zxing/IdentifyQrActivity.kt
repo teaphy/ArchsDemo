@@ -16,8 +16,8 @@ import com.teaphy.archs.photos.entity.LocalMedia
 import com.teaphy.archs.photos.loader.IMediaSelectListener
 import com.teaphy.archs.picture.PictureHelper
 import com.teaphy.archs.demo.R
-import com.teaphy.testzxing.zxing.CodeUtils
-import com.teaphy.testzxing.zxing.IAnalysisCallback
+import com.teaphy.archs.zxing.CodeUtils
+import com.teaphy.archs.zxing.IAnalysisCallback
 import kotlinx.android.synthetic.main.activity_news_web_view.*
 
 /**

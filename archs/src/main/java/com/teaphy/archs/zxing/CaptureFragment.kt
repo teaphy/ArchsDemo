@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import com.google.zxing.Result
 import com.google.zxing.ResultPoint
@@ -29,7 +29,8 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
 import com.teaphy.archs.R
-import com.teaphy.testzxing.zxing.camera.CameraManager
+import com.teaphy.archs.zxing.ViewfinderView
+import com.teaphy.archs.zxing.camera.CameraManager
 
 import java.io.IOException
 

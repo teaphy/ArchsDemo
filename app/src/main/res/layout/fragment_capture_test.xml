@@ -23,7 +23,7 @@
                android:layout_width="fill_parent"
                android:layout_height="fill_parent"/>
 
-  <com.teaphy.testzxing.zxing.ViewfinderView
+  <com.teaphy.archs.zxing.ViewfinderView
       android:id="@+id/viewFinderView"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"/>

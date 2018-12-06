@@ -1,4 +1,4 @@
-package com.teaphy.testzxing.zxing.camera
+package com.teaphy.archs.zxing.camera
 
 import android.graphics.Bitmap
 

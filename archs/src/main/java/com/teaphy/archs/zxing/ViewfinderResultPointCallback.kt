@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing
+package com.teaphy.archs.zxing
 
 import com.google.zxing.ResultPoint
 import com.google.zxing.ResultPointCallback
+import com.teaphy.archs.zxing.ViewfinderView
 
 internal class ViewfinderResultPointCallback(private val viewfinderView: ViewfinderView) : ResultPointCallback {
 

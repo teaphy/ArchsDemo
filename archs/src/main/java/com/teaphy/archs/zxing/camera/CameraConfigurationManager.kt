@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing.camera
+package com.teaphy.archs.zxing.camera
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -26,8 +26,8 @@ import android.view.Surface
 import android.view.WindowManager
 
 import com.google.zxing.client.android.camera.CameraConfigurationUtils
-import com.teaphy.testzxing.zxing.camera.open.CameraFacing
-import com.teaphy.testzxing.zxing.camera.open.OpenCamera
+import com.teaphy.archs.zxing.camera.open.CameraFacing
+import com.teaphy.archs.zxing.camera.open.OpenCamera
 import java.lang.reflect.Method
 
 /**

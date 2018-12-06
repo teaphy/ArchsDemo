@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.teaphy.testzxing.zxing.camera.open
+package com.teaphy.archs.zxing.camera.open
 
 /**
  * Enumeration of directions a camera may face: front or back.
