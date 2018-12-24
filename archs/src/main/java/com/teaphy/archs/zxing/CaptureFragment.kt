@@ -56,6 +56,8 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	lateinit var rootView: View
 
 	var barcodeCallback: IAnalysisCallback? = null
+	
+	var captureFailureCount = 0
 
 	fun getHandler(): Handler? {
 		return handler
@@ -186,9 +188,15 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	 * 扫描失败
 	 */
 	fun handleScanFail() {
-		barcodeCallback?.onAnalysisFailure()
-
-		restartPreviewAfterDelay(500)
+		
+		if (captureFailureCount < 3) {
+			captureFailureCount++
+		} else {
+			captureFailureCount = 0
+			barcodeCallback?.onAnalysisFailure()
+		}
+		
+		restartPreviewAfterDelay(300)
 	}
 
 	/**

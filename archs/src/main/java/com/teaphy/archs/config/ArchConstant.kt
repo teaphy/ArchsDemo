@@ -9,6 +9,6 @@ class ArchConstant {
 	companion object {
 
 		// Provider 路径
-		const val PATH_PROVIDER_ARCH = "com.teaphy.archs"
+		const val PATH_PROVIDER_ARCH = "com.teaphy.archs.provider"
 	}
 }

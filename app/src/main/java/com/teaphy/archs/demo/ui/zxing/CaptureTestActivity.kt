@@ -1,11 +1,10 @@
 package com.teaphy.archs.demo.ui.zxing
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.blankj.utilcode.util.ToastUtils
 import com.google.zxing.Result
-import com.teaphy.archs.photos.ui.BasePhotoSelectorActivity
 import com.teaphy.archs.demo.R
 import com.teaphy.archs.zxing.CaptureFragment
 import com.teaphy.archs.zxing.CodeUtils
@@ -21,6 +20,7 @@ class CaptureTestActivity : AppCompatActivity(), IAnalysisCallback {
 	}
 
 	override fun onAnalysisFailure() {
+		 ToastUtils.showShort("AnalysisFailure")
 	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {

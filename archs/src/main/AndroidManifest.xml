@@ -7,7 +7,7 @@
 
 		<!-- 图片选择 -->
 		<provider
-			android:authorities="com.teaphy.archs"
+			android:authorities="com.teaphy.archs.provider"
 			android:exported="false"
 			android:grantUriPermissions="true"
 			android:name="android.support.v4.content.FileProvider">

@@ -13,48 +13,48 @@ import com.amap.api.location.AMapLocationClientOption.AMapLocationMode
  * @time 2018/8/30 下午4:46
  */
 class AMapStrategy : ILocationStrategy {
-
+	
 	private lateinit var context: Context
 	private var isSingle: Boolean = true
 	private var intervalLocation: Long = 1000L
-
+	
 	// 声明AMapLocationClient类对象
 	private lateinit var locationClient: AMapLocationClient
 	// 声明AMapLocationClientOption对象
 	private lateinit var locationOption: AMapLocationClientOption
 	private var locationCallback: ILocationCallback? = null
-
+	
 	//声明定位回调监听器
 	private var locationListener = AMapLocationListener {
 		var locationResult: LocationResult? = null
 		if (null != it) {
 			locationResult = produceLocationResult(it)
 		}
-
+		
 		locationCallback?.onChange(locationResult)
 	}
-
+	
 	/**
 	 * 初始化定位
 	 */
 	override fun initLocation(context: Context, isSingle: Boolean, intervalLocation: Long, locationCallback: ILocationCallback?) {
-
+		
 		this.context = context
 		this.isSingle = isSingle
 		this.intervalLocation = intervalLocation
 		this.locationCallback = locationCallback
-
+		
 		//初始化定位
 		locationClient = AMapLocationClient(context)
 		// 设置定位回调监听
 		locationClient.setLocationListener(locationListener)
-
+		
 		// 初始化AMapLocationClientOption对象
 		locationOption = AMapLocationClientOption()
-
+		
 		fillOption()
 	}
-
+	
 	/**
 	 * 配置定位参数
 	 */
@@ -62,7 +62,7 @@ class AMapStrategy : ILocationStrategy {
 		with(locationOption) {
 			// 设置定位模式为AMapLocationMode.Hight_Accuracy，高精度模式。
 			locationMode = AMapLocationMode.Hight_Accuracy
-
+			
 			//获取一次定位结果：
 			//该方法默认为false
 			isOnceLocation = isSingle
@@ -71,7 +71,7 @@ class AMapStrategy : ILocationStrategy {
 			// 启动定位时SDK会返回最近3s内精度最高的一次定位结果。
 			// 如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
 			isOnceLocationLatest = true
-
+			
 			// 若连续定位，指定间隔时间
 			// 单位毫秒,默认为2000ms，最低1000ms。
 			if (!isSingle
@@ -80,7 +80,7 @@ class AMapStrategy : ILocationStrategy {
 			}
 		}
 	}
-
+	
 	/**
 	 * 开启定位
 	 */
@@ -92,7 +92,7 @@ class AMapStrategy : ILocationStrategy {
 			startLocation()
 		}
 	}
-
+	
 	/**
 	 * 停止定位
 	 */
@@ -102,14 +102,14 @@ class AMapStrategy : ILocationStrategy {
 			locationClient.stopLocation()
 		}
 	}
-
+	
 	/**
 	 * 销毁定位客户端，同时销毁本地定位服务
 	 */
 	override fun destroyClient() {
 		locationClient.onDestroy()
 	}
-
+	
 	/**
 	 * 创建LocationResult实例
 	 */
@@ -136,10 +136,11 @@ class AMapStrategy : ILocationStrategy {
 				longitude = aMapLocation.longitude,
 				latitude = aMapLocation.latitude,
 				accuracy = aMapLocation.accuracy,
-				locationType = getLocationType(aMapLocation.locationType)
+				locationType = getLocationType(aMapLocation.locationType),
+				aoiName = aMapLocation.aoiName
 		)
 	}
-
+	
 	/**
 	 * 获取定位类型
 	 */

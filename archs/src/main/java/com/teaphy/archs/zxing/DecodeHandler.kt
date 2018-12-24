@@ -32,9 +32,10 @@ import android.os.Message
 import android.util.Log
 
 import com.teaphy.archs.R
+import timber.log.Timber
 import java.io.ByteArrayOutputStream
 
-internal class DecodeHandler(private val activity: CaptureFragment, hints: Map<DecodeHintType, Any>) : Handler() {
+internal class DecodeHandler(private val fragment: CaptureFragment, hints: Map<DecodeHintType, Any>) : Handler() {
 	private val multiFormatReader: MultiFormatReader = MultiFormatReader()
 	private var running = true
 
@@ -79,19 +80,20 @@ internal class DecodeHandler(private val activity: CaptureFragment, hints: Map<D
 		}
 
 		var rawResult: Result? = null
-		val source = activity.cameraManager!!.buildLuminanceSource(rotatedData, width, height)
+		val source = fragment.cameraManager!!.buildLuminanceSource(rotatedData, width, height)
 		if (source != null) {
 			val bitmap = BinaryBitmap(HybridBinarizer(source))
 			try {
 				rawResult = multiFormatReader.decodeWithState(bitmap)
 			} catch (re: ReaderException) {
+				Timber.e("re: $re")
 				// continue
 			} finally {
 				multiFormatReader.reset()
 			}
 		}
 
-		val handler = activity.getHandler()
+		val handler = fragment.getHandler()
 		if (rawResult != null) {
 			// Don't log the barcode contents for security.
 			val end = System.currentTimeMillis()

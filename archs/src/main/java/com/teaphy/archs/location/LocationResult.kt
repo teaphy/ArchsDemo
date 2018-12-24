@@ -26,5 +26,6 @@ data class LocationResult(
 		val provider: String? = "", // 定位提供者
 		val longitude: Double? = 0.0, // 经度
 		val latitude: Double? = 0.0, // 纬度
-		val accuracy: Float? = 0F// 定位精度 单位:米
+		val accuracy: Float? = 0F, // 定位精度 单位:米
+		val aoiName: String? = "" // 获取兴趣面名称
 )
