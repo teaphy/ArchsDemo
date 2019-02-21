@@ -40,7 +40,7 @@ import java.util.ArrayList
  */
 class ViewfinderView// This constructor is used when the class is built from an XML resource.
 (context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
-
+	
 	private var cameraManager: CameraManager? = null
 	private val paint: Paint
 	private val traAnglePaint: Paint
@@ -53,22 +53,22 @@ class ViewfinderView// This constructor is used when the class is built from an 
 	private var possibleResultPoints: MutableList<ResultPoint>? = null
 	private var lastPossibleResultPoints: List<ResultPoint>? = null
 	private val triAngleLength = dp2px(20) //每个角的点距离
-	private val triAngleWidth = dp2px(4) //每个角的点宽度
+	private val triAngleWidth = 12 //每个角的点宽度
 	private var triAngleColor: Int = Color.parseColor("#76EE00")
 		set(value) {
 			traAnglePaint.color = value
 			field = value
 		}
-
+	
 	private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG)
-
+	
 	private var lineOffsetCount = 0
-
+	
 	init {
-
+		
 		// Initialize these once for performance rather than calling them every time in onDraw().
 		paint = Paint(Paint.ANTI_ALIAS_FLAG)
-
+		
 		// 初始化traAnglePaint
 		traAnglePaint = Paint(Paint.ANTI_ALIAS_FLAG)
 		with(traAnglePaint) {
@@ -76,7 +76,7 @@ class ViewfinderView// This constructor is used when the class is built from an 
 			strokeWidth = triAngleWidth.toFloat()
 			style = Paint.Style.STROKE
 		}
-
+		
 		val resources = resources
 		maskColor = resources.getColor(R.color.viewfinder_mask)
 		resultColor = resources.getColor(R.color.result_view)
@@ -85,16 +85,16 @@ class ViewfinderView// This constructor is used when the class is built from an 
 		scannerAlpha = 0
 		possibleResultPoints = ArrayList(5)
 		lastPossibleResultPoints = null
-
+		
 		if (attrs != null) {
-
+		
 		}
 	}
-
+	
 	fun setCameraManager(cameraManager: CameraManager) {
 		this.cameraManager = cameraManager
 	}
-
+	
 	@SuppressLint("DrawAllocation")
 	public override fun onDraw(canvas: Canvas) {
 		if (cameraManager == null) {
@@ -108,45 +108,57 @@ class ViewfinderView// This constructor is used when the class is built from an 
 		}
 		val width = canvas.width
 		val height = canvas.height
-
 		
 		
 		// Draw the exterior (i.e. outside the framing rect) darkened
-		paint.color = if (resultBitmap != null) resultColor else maskColor
-		canvas.drawRect(0f, 0f, width.toFloat(), frame.top.toFloat(), paint)
-		canvas.drawRect(0f, frame.top.toFloat(), frame.left.toFloat(), (frame.bottom + 1).toFloat(), paint)
-		canvas.drawRect((frame.right + 1).toFloat(), frame.top.toFloat(), width.toFloat(), (frame.bottom + 1).toFloat(), paint)
-		canvas.drawRect(0f, (frame.bottom + 1).toFloat(), width.toFloat(), height.toFloat(), paint)
-
-		// 四个角落的三角
 		val topY = (height - frame.height() - triAngleWidth) / 2
 		val bottomY = (height + frame.height() + triAngleWidth) / 2
+		paint.color = if (resultBitmap != null) resultColor else maskColor
+		canvas.drawRect(0f,
+				0f,
+				width.toFloat(),
+				(height - frame.height()).shr(1).toFloat() - triAngleWidth, paint)
+		canvas.drawRect(
+				0f,
+				((height - frame.height()).shr(1)).toFloat() - triAngleWidth,
+				(width - frame.width()).toFloat().div(2)  - triAngleWidth,
+				((height + frame.height()).shr(1) + triAngleWidth).toFloat(), paint)
+		canvas.drawRect(
+				((width + frame.width()).shr(1) + triAngleWidth).toFloat(),
+				((height - frame.height()).shr(1)).toFloat() - triAngleWidth,
+				width.toFloat(),
+				((height + frame.height()).shr(1) + triAngleWidth).toFloat(), paint)
+		canvas.drawRect(0f,
+				(height + frame.height()).shr(1).toFloat() + triAngleWidth,
+				width.toFloat(),
+				height.toFloat(), paint)
 		
+		// 四个角落的三角
 		val leftTopPath = Path()
 		leftTopPath.moveTo((frame.left + triAngleLength).toFloat(), topY.toFloat())
-		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), topY.toFloat())
-		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), (topY + triAngleLength).toFloat())
+		leftTopPath.lineTo((width - frame.width() - triAngleWidth).shr(1).toFloat(), topY.toFloat())
+		leftTopPath.lineTo((width - frame.width() - triAngleWidth).shr(1).toFloat(), (topY + triAngleLength).toFloat())
 		canvas.drawPath(leftTopPath, traAnglePaint)
-
+		
 		val rightTopPath = Path()
 		rightTopPath.moveTo((frame.right - triAngleLength).toFloat(), topY.toFloat())
-		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), topY.toFloat())
-		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (topY + triAngleLength).toFloat())
+		rightTopPath.lineTo((width + frame.width() + triAngleWidth).shr(1).toFloat(), topY.toFloat())
+		rightTopPath.lineTo((width + frame.width() + triAngleWidth).shr(1).toFloat(), (topY + triAngleLength).toFloat())
 		canvas.drawPath(rightTopPath, traAnglePaint)
-
+		
 		val leftBottomPath = Path()
-		leftBottomPath.moveTo((frame.left + triAngleWidth / 2).toFloat(), (bottomY - triAngleLength).toFloat())
-		leftBottomPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), bottomY.toFloat())
+		leftBottomPath.moveTo((width - frame.width() - triAngleWidth).shr(1).toFloat(), (bottomY - triAngleLength).toFloat())
+		leftBottomPath.lineTo((width - frame.width() - triAngleWidth).shr(1).toFloat(), bottomY.toFloat())
 		leftBottomPath.lineTo((frame.left + triAngleLength).toFloat(), bottomY.toFloat())
 		canvas.drawPath(leftBottomPath, traAnglePaint)
-
+		
 		val rightBottomPath = Path()
 		rightBottomPath.moveTo((frame.right - triAngleLength).toFloat(), bottomY.toFloat())
-		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), bottomY.toFloat())
-		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (bottomY - triAngleLength).toFloat())
+		rightBottomPath.lineTo((width + frame.width() + triAngleWidth).shr(1).toFloat(), bottomY.toFloat())
+		rightBottomPath.lineTo((width + frame.width() + triAngleWidth).shr(1).toFloat(), (bottomY - triAngleLength).toFloat())
 		canvas.drawPath(rightBottomPath, traAnglePaint)
-
-
+		
+		
 		if (resultBitmap != null) {
 			// Draw the opaque result bitmap over the scanning rectangle
 			paint.alpha = CURRENT_POINT_OPACITY
@@ -166,19 +178,19 @@ class ViewfinderView// This constructor is used when the class is built from an 
 				val scanLine = (ActivityCompat.getDrawable(context, R.mipmap.afcs_ic_scan_line)) as BitmapDrawable
 				canvas.drawBitmap(scanLine.bitmap, null, lineRect, linePaint)
 			}
-
-			postInvalidateDelayed (10L, frame.left, frame.top, frame.right, frame.bottom)
-
+			
+			postInvalidateDelayed(10L, frame.left, frame.top, frame.right, frame.bottom)
+			
 		}
 	}
-
+	
 	fun drawViewfinder() {
 		val resultBitmap = this.resultBitmap
 		this.resultBitmap = null
 		resultBitmap?.recycle()
 		invalidate()
 	}
-
+	
 	/**
 	 * Draw a bitmap with the result points highlighted instead of the live scanning display.
 	 *
@@ -188,7 +200,7 @@ class ViewfinderView// This constructor is used when the class is built from an 
 		resultBitmap = barcode
 		invalidate()
 	}
-
+	
 	fun addPossibleResultPoint(point: ResultPoint) {
 		val points = possibleResultPoints
 		points!!.add(point)
@@ -198,16 +210,16 @@ class ViewfinderView// This constructor is used when the class is built from an 
 			points.subList(0, size - MAX_RESULT_POINTS / 2).clear()
 		}
 	}
-
+	
 	companion object {
-
+		
 		private val SCANNER_ALPHA = intArrayOf(0, 64, 128, 192, 255, 192, 128, 64)
 		private val ANIMATION_DELAY = 80L
 		private val CURRENT_POINT_OPACITY = 0xA0
 		private val MAX_RESULT_POINTS = 20
 		private val POINT_SIZE = 6
 	}
-
+	
 	private fun dp2px(dp: Int): Int {
 		val density = context.resources.displayMetrics.density
 		return (dp * density + 0.5f).toInt()
