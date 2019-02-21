@@ -10,7 +10,7 @@ class FastClickUtils {
 	companion object {
 
 		private var lastClickTime: Long = 0
-		private val TIME: Long = 1000
+		private const val TIME: Long = 1000
 
 		val isCanClick: Boolean
 			get() {

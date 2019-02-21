@@ -101,6 +101,7 @@ class ViewfinderView// This constructor is used when the class is built from an 
 			return  // not ready yet, early draw before done configuring
 		}
 		val frame = cameraManager!!.framingRect
+		
 		val previewFrame = cameraManager!!.framingRectInPreview
 		if (frame == null || previewFrame == null) {
 			return
@@ -108,6 +109,8 @@ class ViewfinderView// This constructor is used when the class is built from an 
 		val width = canvas.width
 		val height = canvas.height
 
+		
+		
 		// Draw the exterior (i.e. outside the framing rect) darkened
 		paint.color = if (resultBitmap != null) resultColor else maskColor
 		canvas.drawRect(0f, 0f, width.toFloat(), frame.top.toFloat(), paint)
@@ -116,28 +119,31 @@ class ViewfinderView// This constructor is used when the class is built from an 
 		canvas.drawRect(0f, (frame.bottom + 1).toFloat(), width.toFloat(), height.toFloat(), paint)
 
 		// 四个角落的三角
+		val topY = (height - frame.height() - triAngleWidth) / 2
+		val bottomY = (height + frame.height() + triAngleWidth) / 2
+		
 		val leftTopPath = Path()
-		leftTopPath.moveTo((frame.left + triAngleLength).toFloat(), (frame.top + triAngleWidth / 2).toFloat())
-		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), (frame.top + triAngleWidth / 2).toFloat())
-		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), (frame.top + triAngleLength).toFloat())
+		leftTopPath.moveTo((frame.left + triAngleLength).toFloat(), topY.toFloat())
+		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), topY.toFloat())
+		leftTopPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), (topY + triAngleLength).toFloat())
 		canvas.drawPath(leftTopPath, traAnglePaint)
 
 		val rightTopPath = Path()
-		rightTopPath.moveTo((frame.right - triAngleLength).toFloat(), (frame.top + triAngleWidth / 2).toFloat())
-		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (frame.top + triAngleWidth / 2).toFloat())
-		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (frame.top + triAngleLength).toFloat())
+		rightTopPath.moveTo((frame.right - triAngleLength).toFloat(), topY.toFloat())
+		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), topY.toFloat())
+		rightTopPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (topY + triAngleLength).toFloat())
 		canvas.drawPath(rightTopPath, traAnglePaint)
 
 		val leftBottomPath = Path()
-		leftBottomPath.moveTo((frame.left + triAngleWidth / 2).toFloat(), (frame.bottom - triAngleLength).toFloat())
-		leftBottomPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), (frame.bottom - triAngleWidth / 2).toFloat())
-		leftBottomPath.lineTo((frame.left + triAngleLength).toFloat(), (frame.bottom - triAngleWidth / 2).toFloat())
+		leftBottomPath.moveTo((frame.left + triAngleWidth / 2).toFloat(), (bottomY - triAngleLength).toFloat())
+		leftBottomPath.lineTo((frame.left + triAngleWidth / 2).toFloat(), bottomY.toFloat())
+		leftBottomPath.lineTo((frame.left + triAngleLength).toFloat(), bottomY.toFloat())
 		canvas.drawPath(leftBottomPath, traAnglePaint)
 
 		val rightBottomPath = Path()
-		rightBottomPath.moveTo((frame.right - triAngleLength).toFloat(), (frame.bottom - triAngleWidth / 2).toFloat())
-		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (frame.bottom - triAngleWidth / 2).toFloat())
-		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (frame.bottom - triAngleLength).toFloat())
+		rightBottomPath.moveTo((frame.right - triAngleLength).toFloat(), bottomY.toFloat())
+		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), bottomY.toFloat())
+		rightBottomPath.lineTo((frame.right - triAngleWidth / 2).toFloat(), (bottomY - triAngleLength).toFloat())
 		canvas.drawPath(rightBottomPath, traAnglePaint)
 
 

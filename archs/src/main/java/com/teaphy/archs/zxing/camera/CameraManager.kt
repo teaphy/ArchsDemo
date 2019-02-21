@@ -213,7 +213,7 @@ class CameraManager private constructor(private val context: Context) {
 	}
 
 	/**
-	 * Convenience method for [com.google.zxing.client.android.CaptureActivity]
+	 * Convenience method for [aptureFragment]
 	 *
 	 * @param newSetting if `true`, light should be turned on if currently off. And vice versa.
 	 */
@@ -232,6 +232,11 @@ class CameraManager private constructor(private val context: Context) {
 				autoFocusManager!!.start()
 			}
 		}
+	}
+	
+	fun getTorchState() : Boolean{
+		val theCamera = camera ?: return false
+		return configManager.getTorchState(theCamera.camera)
 	}
 
 	/**

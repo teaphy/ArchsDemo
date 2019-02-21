@@ -153,7 +153,10 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	fun closeTorch() {
 		cameraManager!!.setTorch(false)
 	}
-
+	
+	fun getTorchState(): Boolean {
+		return cameraManager?.getTorchState() ?: false
+	}
 
 	override fun surfaceCreated(holder: SurfaceHolder?) {
 		if (holder == null) {

@@ -42,6 +42,7 @@ abstract class BaseActivity<P : ViewDataBinding>: AppCompatActivity(), IBackView
 
 		setListener()
 
+		loadRemoteSource()
 	}
 
 	private fun createDataBinding(): P {
@@ -97,6 +98,13 @@ abstract class BaseActivity<P : ViewDataBinding>: AppCompatActivity(), IBackView
 	  */
 	open fun setListener() {
 
+	}
+	
+	/**
+	 * 加载远程数据
+	 */
+	open fun loadRemoteSource() {
+	
 	}
 
 	/**
