@@ -62,9 +62,9 @@ abstract class BaseWebViewActivity<P : ViewDataBinding> : BaseActivity<P>() {
 			//设置加载进来的页面自适应手机屏幕
 //			useWideViewPort = true
 //			loadWithOverviewMode = true
-			// 通过百分比来设置文字的大小，默认值是100。
-			textZoom = 100
-			
+//			// 通过百分比来设置文字的大小，默认值是100。
+//			textZoom = 100
+			moreWebSettings(this)
 		}
 		
 		with(webView) {

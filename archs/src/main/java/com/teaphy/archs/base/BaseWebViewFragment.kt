@@ -68,7 +68,7 @@ abstract class BaseWebViewFragment<P : ViewDataBinding> : BaseFragment<P>() {
 //			useWideViewPort = true
 //			loadWithOverviewMode = true
 			// 通过百分比来设置文字的大小，默认值是100。
-			textZoom = 100
+//			textZoom = 100
 			
 			moreWebSettings(this)
 		}
