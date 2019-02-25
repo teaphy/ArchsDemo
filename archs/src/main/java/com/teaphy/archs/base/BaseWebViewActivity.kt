@@ -170,6 +170,13 @@ abstract class BaseWebViewActivity<P : ViewDataBinding> : BaseActivity<P>() {
 		webView.addJavascriptInterface(any, interfaceName)
 	}
 	
+	/**
+	 * WebView - WebSettings
+	 */
+	open fun moreWebSettings(settings: WebSettings) {
+	
+	}
+	
 	// 初始化WebView
 	abstract fun initWebView(): WebView
 	

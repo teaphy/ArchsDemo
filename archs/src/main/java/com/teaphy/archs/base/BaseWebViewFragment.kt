@@ -70,6 +70,7 @@ abstract class BaseWebViewFragment<P : ViewDataBinding> : BaseFragment<P>() {
 			// 通过百分比来设置文字的大小，默认值是100。
 			textZoom = 100
 			
+			moreWebSettings(this)
 		}
 
 		with(webView) {
@@ -170,6 +171,13 @@ abstract class BaseWebViewFragment<P : ViewDataBinding> : BaseFragment<P>() {
 	@SuppressLint("JavascriptInterface")
 	fun wAddJavascriptInterface(any: Any, interfaceName: String) {
 		webView.addJavascriptInterface(any, interfaceName)
+	}
+	
+	/**
+	 * WebView - WebSettings
+	 */
+	open fun moreWebSettings(settings: WebSettings) {
+	
 	}
 
 	// 初始化WebView
