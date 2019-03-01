@@ -30,7 +30,7 @@ import com.teaphy.archs.zxing.camera.CameraManager
  *
  * @author dswitkin@google.com (Daniel Switkin)
  */
-class CaptureActivityHandler internal constructor(private val fragment: CaptureFragment,
+class CaptureFragmentHandler internal constructor(private val fragment: CaptureFragment,
                                                   private val cameraManager: CameraManager) : Handler() {
 	private val decodeThread: DecodeThread
 	private var state: State? = null
@@ -101,11 +101,6 @@ class CaptureActivityHandler internal constructor(private val fragment: CaptureF
 			cameraManager.requestPreviewFrame(decodeThread.handler!!, R.id.decode)
 			fragment.drawViewfinder()
 		}
-	}
-
-	companion object {
-
-		private val TAG = CaptureActivityHandler::class.java.simpleName
 	}
 
 }

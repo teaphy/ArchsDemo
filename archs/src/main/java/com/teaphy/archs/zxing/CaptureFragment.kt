@@ -29,7 +29,6 @@ import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
 import com.teaphy.archs.R
-import com.teaphy.archs.zxing.ViewfinderView
 import com.teaphy.archs.zxing.camera.CameraManager
 
 import java.io.IOException
@@ -45,7 +44,7 @@ import java.io.IOException
 class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 
 	var cameraManager: CameraManager? = null
-	private var handler: CaptureActivityHandler? = null
+	private var handler: CaptureFragmentHandler? = null
 	internal var viewfinderView: ViewfinderView? = null
 		private set
 	private var hasSurface: Boolean = false
@@ -109,7 +108,6 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 		ambientLightManager!!.start(cameraManager!!)
 
 		inactivityTimer!!.onResume()
-
 
 		val surfaceView = rootView.findViewById(R.id.previewView) as SurfaceView
 		val surfaceHolder = surfaceView.holder
@@ -192,14 +190,14 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	 */
 	fun handleScanFail() {
 		
-		if (captureFailureCount < 3) {
+		if (captureFailureCount < 6) {
 			captureFailureCount++
 		} else {
 			captureFailureCount = 0
 			barcodeCallback?.onAnalysisFailure()
 		}
 		
-		restartPreviewAfterDelay(300)
+		restartPreviewAfterDelay(500)
 	}
 
 	/**
@@ -217,7 +215,7 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 			cameraManager!!.openDriver(surfaceHolder)
 			// Creating the handler starts the preview, which can also throw a RuntimeException.
 			if (handler == null) {
-				handler = CaptureActivityHandler(this, cameraManager!!)
+				handler = CaptureFragmentHandler(this, cameraManager!!)
 			}
 //			decodeOrStoreSavedBitmap(null, null)
 		} catch (ioe: IOException) {
