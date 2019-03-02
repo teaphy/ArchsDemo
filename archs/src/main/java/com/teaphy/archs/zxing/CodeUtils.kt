@@ -65,6 +65,10 @@ object CodeUtils {
 			// 这里设置可扫描的类型，我这里选择了都支持
 			decodeFormats.addAll(DecodeFormatManager.QR_CODE_FORMATS)
 			decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS)
+			decodeFormats.addAll(DecodeFormatManager.PRODUCT_FORMATS)
+			decodeFormats.addAll(DecodeFormatManager.INDUSTRIAL_FORMATS)
+			decodeFormats.addAll(DecodeFormatManager.AZTEC_FORMATS)
+			decodeFormats.addAll(DecodeFormatManager.PDF417_FORMATS)
 		}
 		hints[DecodeHintType.POSSIBLE_FORMATS] = decodeFormats
 		// 设置继续的字符编码格式为UTF8
