@@ -4,17 +4,7 @@
 	<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
 
 	<application>
-		<!-- 图片选择 -->
-		<provider
-			android:authorities="com.teaphy.archs.provider"
-			android:exported="false"
-			android:grantUriPermissions="true"
-			android:name="android.support.v4.content.FileProvider">
-			<meta-data
-				android:name="android.support.FILE_PROVIDER_PATHS"
-				android:resource="@xml/file_paths"/>
-		</provider>
-
+		
 		<activity
 			android:name="com.teaphy.archs.photos.ui.PhotoSelectActivity"
 			android:screenOrientation="portrait"/>

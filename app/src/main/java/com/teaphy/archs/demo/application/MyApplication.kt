@@ -56,6 +56,7 @@ class MyApplication : BaseApplication() {
 		with(ArchConfig) {
 			URL_REMOTE_BASE = "http://v.juhe.cn/"
 			NAME_FILE_ICON_FONT = "iconfont_20181106.ttf"
+			URL_PROVIDER = "com.teaphy.archs.demos.provider"
 		}
 	}
 }

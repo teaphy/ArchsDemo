@@ -13,6 +13,9 @@ class ArchConfig private constructor() {
 
 		// IconFont文件资源名
 		var NAME_FILE_ICON_FONT: String = ""
+		
+		// 用于图片选择的ContentProvider
+		var URL_PROVIDER = ""
 	}
 
 }

@@ -72,7 +72,6 @@ class CaptureFragmentHandler internal constructor(private val fragment: CaptureF
 			R.id.decode_failed -> {
 				// We're decoding as fast as possible, so when one decode fails, start another.
 				state = State.PREVIEW
-				fragment.handleScanFail()
 				cameraManager.requestPreviewFrame(decodeThread.handler!!, R.id.decode)
 			}
 		}

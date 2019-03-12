@@ -26,6 +26,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
+import android.text.TextUtils
 import android.util.Log
 import android.view.*
 import com.teaphy.archs.R
@@ -55,8 +56,6 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	lateinit var rootView: View
 
 	var barcodeCallback: IAnalysisCallback? = null
-	
-	var captureFailureCount = 0
 
 	fun getHandler(): Handler? {
 		return handler
@@ -143,11 +142,17 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 		inactivityTimer!!.shutdown()
 		super.onDestroy()
 	}
-
+	
+	/**
+	 * 打开闪光灯
+	 */
 	public fun openTorch() {
 		cameraManager!!.setTorch(true)
 	}
-
+	
+	/**
+	 * 打开闪光灯
+	 */
 	fun closeTorch() {
 		cameraManager!!.setTorch(false)
 	}
@@ -158,7 +163,6 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 
 	override fun surfaceCreated(holder: SurfaceHolder?) {
 		if (holder == null) {
-			Log.e(TAG, "*** WARNING *** surfaceCreated() gave us a null surface!")
 		}
 		if (!hasSurface) {
 			hasSurface = true
@@ -179,24 +183,13 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 	 */
 	fun handleDecode(rawResult: Result, barcode: Bitmap?, scaleFactor: Float) {
 		inactivityTimer!!.onActivity()
-
-		barcodeCallback?.onAnalysisSuccess(rawResult, barcode)
-
-		restartPreviewAfterDelay(500)
-	}
-
-	/**
-	 * 扫描失败
-	 */
-	fun handleScanFail() {
 		
-		if (captureFailureCount < 6) {
-			captureFailureCount++
-		} else {
-			captureFailureCount = 0
+		if (TextUtils.isEmpty(rawResult.text)) {
 			barcodeCallback?.onAnalysisFailure()
+		} else {
+			barcodeCallback?.onAnalysisSuccess(rawResult, barcode)
 		}
-		
+
 		restartPreviewAfterDelay(500)
 	}
 
@@ -208,22 +201,19 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 			throw IllegalStateException("No SurfaceHolder provided")
 		}
 		if (cameraManager!!.isOpen) {
-			Log.w(TAG, "initCamera() while already open -- late SurfaceView callback?")
 			return
 		}
 		try {
 			cameraManager!!.openDriver(surfaceHolder)
-			// Creating the handler starts the preview, which can also throw a RuntimeException.
+			// 创建CaptureFragmentHandler并启动Preview，其会抛出RuntimeException。
 			if (handler == null) {
 				handler = CaptureFragmentHandler(this, cameraManager!!)
 			}
 //			decodeOrStoreSavedBitmap(null, null)
 		} catch (ioe: IOException) {
-			Log.w(TAG, ioe)
 		} catch (e: RuntimeException) {
 			// Barcode Scanner has seen crashes in the wild of this variety:
-			// java.?lang.?RuntimeException: Fail to connect to camera service
-			Log.w(TAG, "Unexpected error initializing camera", e)
+			// java.?lang.?RuntimeException: Fail to connect to camera service、
 		}
 
 	}
@@ -237,20 +227,5 @@ class CaptureFragment : Fragment(), SurfaceHolder.Callback {
 
 	fun drawViewfinder() {
 		viewfinderView!!.drawViewfinder()
-	}
-
-	companion object {
-
-		private val TAG = CaptureFragment::class.java.simpleName
-
-		private fun drawLine(canvas: Canvas, paint: Paint, a: ResultPoint?, b: ResultPoint?, scaleFactor: Float) {
-			if (a != null && b != null) {
-				canvas.drawLine(scaleFactor * a.x,
-						scaleFactor * a.y,
-						scaleFactor * b.x,
-						scaleFactor * b.y,
-						paint)
-			}
-		}
 	}
 }
